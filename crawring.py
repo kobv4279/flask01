@@ -18,7 +18,7 @@ def kj():
         ref = str("http://www.gen.go.kr/xboard/" + i.a['href'])
         kj_ref_list.append(str(ref))
 
-    return kj_sub_list
+    return kj_sub_list, kj_ref_list
 
 def cn():
     url = 'http://www.jne.go.kr/board/list.jne?boardId=BBS_0000282&menuCd=DOM_000000102006001000&contentsSid=252&cpath='
