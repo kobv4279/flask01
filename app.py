@@ -28,6 +28,12 @@ def result1():
       return render_template("cn.html", result=result,
                              sub = cn_sub_list)
 
+@app.route('/kj', methods =['POST','GET'])
+def result2():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("kj.html", result=result,
+                               sub= kj_sub_list)
 
 @app.route('/chonbook.html',methods = ['POST', 'GET'])
 def result3():
