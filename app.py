@@ -6,9 +6,15 @@ import crawring
 app = Flask(__name__)
 
 
+
 kj_sub_list = crawring.kj()
 cn_sub_list = crawring.cn()
 chonbook_sub_list = crawring.chonbook()
+
+
+
+
+
 @app.route('/')
 
 def hello():
@@ -27,6 +33,15 @@ def result1():
 
       return render_template("cn.html", result=result,
                              sub = cn_sub_list)
+
+
+
+@app.route('/kj', methods= ['POST','GET'])
+def result2():
+    if request.method == 'POST':
+        result = request.form
+        return render_template('kj.html', result=result,
+                               sub = kj_sub_list)
 
 
 @app.route('/chonbook.html',methods = ['POST', 'GET'])
