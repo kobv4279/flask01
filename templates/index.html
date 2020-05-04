@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>교사임용공고</title>
-    <a href="/about">어바웃페이지로 이</a>
+    <a href="/">메인페이지로 이동</a>
     <link rel="stylesheet" href="{{url_for('static',filename='css/index_style_css.css')}}">
 </head>
 <body>
@@ -19,24 +19,30 @@
     <h1>여기는 광주광역시 교사임용공고 크롤링 페이지입니다
     </h1>
     <ul>
-    {% for i in sub%}
-    <li>
-        {{i}}
-    </li>
-    {% endfor %}
+    {% for i in range(0, ref_len) %}
+
+        <a href="{{ref[i]}}"><li>{{sub[i]}}</li></a>
+
+        {% endfor %}
     </ul>
+
 </div>
 
-<form action = "http://0.0.0.0:5000/kf" method = "POST">
+<form action = "http://localhost:5000/kj" method = "POST">
 
          <p><input type = "submit" value = "광주" /></p>
       </form>
-<form action = "http://0.0.0.0:5000/cn" method = "POST">
+<form action = "http://localhost:5000/cn" method = "POST">
     <p><input type="submit" value ="전라남도 "></p>
 </form>
 
-<form action="http://0.0.0.0:5000/chonbook.html" method = "POST">
+<form action="http://localhost:5000/chonbook.html" method = "POST">
     <p><input type="submit" value="전라북도"></p>
+
+</form>
+<form action="http://localhost:5000/dj.html" method = "POST">
+    <p><input type="submit" value="대전교육청"></p>
+
 </form>
 </body>
 </html>

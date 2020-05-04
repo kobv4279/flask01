@@ -13,12 +13,17 @@ def kj():
     for i in title:
 
         sub = i.a.text
-        # print(type(sub))
-        kj_sub_list.append(str(sub))
-        ref = str("http://www.gen.go.kr/xboard/" + i.a['href'])
-        kj_ref_list.append(str(ref))
 
-    return kj_sub_list
+        kj_sub_list.append(str(sub))
+        ref = i.find("a")["href"]
+
+        ref_= "http://www.gen.go.kr/xboard/" + ref
+        #print(ref_)
+        kj_ref_list.append(ref_)
+
+   # http: // www.gen.go.kr / xboard / board.php?mode = view & number = 378639 & tbnum = 32 & sCat = 0 & page = 1 & keyset = & searchword =
+
+    return kj_sub_list, kj_ref_list
 
 def cn():
     url = 'http://www.jne.go.kr/board/list.jne?boardId=BBS_0000282&menuCd=DOM_000000102006001000&contentsSid=252&cpath='
@@ -42,4 +47,16 @@ def chonbook():
         chonbook_sub_list.append(i.text)
     return chonbook_sub_list
 
+dj_sub_list =[]
+def dj():
+    url = "http://www.dje.go.kr/boardCnts/list.do?boardID=54&m=031001&s=dje"
+    r = requests.get(url)
+    bs = BeautifulSoup(r.text, "html.parser")
+    lists = bs.select("td.link")
+
+    for i in lists:
+        print(i.a.text)
+        dj_sub_list.append(i.a.text)
+
+    return dj_sub_list
 
