@@ -42,6 +42,23 @@
 </form>
 <form action="http://localhost:5000/dj.html" method = "POST">
     <p><input type="submit" value="대전교육청"></p>
+</form>
+
+<form action="/write" method="POST" name="form">
+    <table>
+        <tr>
+            <td>작성자</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+
+        <tr>
+            <td>한줄메모</td>
+            <td><textarea name="contents" id="" cols="30" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit"></td>
+        </tr>
+    </table>
 
 </form>
 </body>
