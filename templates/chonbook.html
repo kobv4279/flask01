@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>chonbook.html</title>
-    <a href="/about">어바웃페이지로 이</a>
+    <a href="/index">메인페이지로 이동</a>
     <link rel="stylesheet" href="{{url_for('static',filename='css/index_style_css.css')}}">
 </head>
 <body>
@@ -26,15 +26,15 @@
     {% endfor %}
     </ul>
 </div>
-
-<form action = "http://localhost:5000/kj" method = "POST">
+<script>
+<form name="form" action = "http://{{ip}}:5000/kj" method = "POST">
 
          <p><input type = "submit" value = "광주" /></p>
       </form>
-<form action = "http://localhost:5000/cn" method = "POST">
+<form name="form" action = "http://{{ip}}:5000/cn" method = "POST">
 
          <p><input type = "submit" value = "전남" /></p>
       </form>
+ </script>
 </body>
 </html>
-

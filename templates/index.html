@@ -28,23 +28,23 @@
 
 </div>
 
-<form action = "http://localhost:5000/kj" method = "POST">
+<form name="form" action = "http://{{ip}}:5000/kj" method = "POST">
 
          <p><input type = "submit" value = "광주" /></p>
       </form>
-<form action = "http://localhost:5000/cn" method = "POST">
+<form name="form" action = "http://{{ip}}:5000/cn" method = "POST">
     <p><input type="submit" value ="전라남도 "></p>
 </form>
 
-<form action="http://localhost:5000/chonbook.html" method = "POST">
+<form name="form" action="http://{{ip}}:5000/chonbook.html" method = "POST">
     <p><input type="submit" value="전라북도"></p>
 
 </form>
-<form action="http://localhost:5000/dj.html" method = "POST">
+<form name="form" action="http://{{ip}}:5000/dj.html" method = "POST">
     <p><input type="submit" value="대전교육청"></p>
 </form>
 
-<form action="/write" method="POST" name="form">
+<form name="form" action="/write" method="POST" name="form">
     <table>
         <tr>
             <td>작성자</td>
@@ -53,7 +53,7 @@
 
         <tr>
             <td>한줄메모</td>
-            <td><textarea name="contents" id="" cols="30" rows="10"></textarea></td>
+            <td><textarea name="contents" id="" cols="30" rows="3"></textarea></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit"></td>
@@ -61,5 +61,8 @@
     </table>
 
 </form>
+<br>
+<br>
+
 </body>
 </html>

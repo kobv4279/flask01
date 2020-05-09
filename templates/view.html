@@ -1,16 +1,27 @@
-<html>
+<{% extends "main.html" %}
 
-{{result.title}}
-<br>
-{{result.name}}
-<br>
-{{result.pubdate|formatdatetime}}
-<br>
-{{result.view}}
-<br>
-{{result.contents}}
+{% block contents %}
 
 
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td colspan="2">{{result.title}}</td>
+        </tr>
+        <tr>
+            <td>{{result.name}}</td>
+            <td class="text-right">{{result.pubdate|formatdatetime}}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><div style="min-height: 200px;">{{result.contents}}</div></td>
+
+        </tr>
+    </tbody>
+</table>
 
 
-</html>
+<a class="btn btn-primary" href="{{url_for('lists', page=page,search=search,keyword=keyword)}}">리스트</a>
+
+{% endblock %}
+
+

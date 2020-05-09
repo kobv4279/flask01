@@ -14,7 +14,10 @@ import crawring
 
 
 app = Flask(__name__)
-ip='0.0.0.0'
+
+
+ip='localhost'
+
 app.config["MONGO_URI"]= "mongodb://localhost:27017/hire"
 mongo = PyMongo(app)
 
@@ -45,7 +48,7 @@ def lists():
     limit = request.args.get("limit", 10, type=int)
 
     board = mongo.db.board
-    datas = board.find({}).skip((page - 1) * limit).limit(limit)
+    datas = board.find({}).skip((page - 1) * limit).limit(limit).sort("pubdate", -1)
     # limit디폴트값이 10개니까 앞 10개 없애고 10개로 제한
 
     # 게시물의 총 갯수
@@ -129,6 +132,7 @@ def board_write():
 
 def hello():
     return render_template('index.html',
+                           ip= ip,
                            title='깜슈니',
                            sub = kj_sub_list,
                            ref= kj_ref_list,
@@ -143,7 +147,9 @@ def result1():
    if request.method == 'POST':
       result = request.form
 
-      return render_template("cn.html", result=result,
+      return render_template("cn.html",
+                             result=result,
+                             ip=ip,
                              sub = cn_sub_list)
 
 @app.route('/kj',methods = ['POST'])
@@ -151,7 +157,9 @@ def kj_():
    if request.method == 'POST':
       result = request.form
 
-      return render_template("kj.html", result=result,
+      return render_template("kj.html",
+                             ip=ip,
+                             result=result,
                              sub = kj_sub_list,
                              ref= kj_sub_list,
                              ref_len=len(kj_ref_list))
@@ -162,7 +170,9 @@ def result3():
    if request.method == 'POST':
       result = request.form
 
-      return render_template("chonbook.html", result=result,
+      return render_template("chonbook.html",
+                             result=result,
+                             ip=ip,
                              sub = chonbook_sub_list)
 
 
@@ -171,11 +181,13 @@ def result_dj():
    if request.method == 'POST':
       result = request.form
 
-      return render_template("dj.html", result=result,
+      return render_template("dj.html",
+                             result=result,
+                             ip=ip,
                              sub = dj_sub_list)
 
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host="0.0.0.0")
+    app.run(host=ip)
     #app.run(debug=True)

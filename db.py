@@ -5,13 +5,19 @@
 import requests
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
+from flask_pymongo import PyMongo
 from datetime import datetime
 import random
+from flask import app
+from flask import request, render_template, redirect, url_for
 
 client = MongoClient(host="localhost",port=27017)
 db = client.hire
 col = db.memotable
 
+
+
+mongo = PyMongo(app)
 
 @app.route("/write", methods=["GET","POST"])
 def board_write():
