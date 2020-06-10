@@ -11,7 +11,13 @@ from flask import abort
 from flask import redirect
 from flask import url_for
 import time
-import crawring
+
+
+from .crawring import *
+from .test_daejoun import *
+from . import crawring
+from . import test_daejoun
+
 
 
 app = Flask(__name__)

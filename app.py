@@ -10,13 +10,14 @@ from flask import abort
 from flask import redirect
 from flask import url_for
 import time
+
 import crawring
 
 
 app = Flask(__name__)
 
 
-ip='localhost'
+ip='0.0.0.0'
 
 app.config["MONGO_URI"]= "mongodb://localhost:27017/hire"
 mongo = PyMongo(app)
@@ -189,5 +190,5 @@ def result_dj():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host=ip)
-    #app.run(debug=True)
+    app.run(host='0.0.0.0')
+    app.run(debug=True)
