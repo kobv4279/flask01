@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 ip='0.0.0.0'
 
-app.config["MONGO_URI"]= "mongodb://localhost:27017/hire"
+app.config["MONGO_URI"]= "mongodb://mongo:27017/hire"
 mongo = PyMongo(app)
 
 kj_sub_list,kj_ref_list = crawring.kj()
