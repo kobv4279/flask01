@@ -6,10 +6,10 @@ from pymongo import MongoClient
 from datetime import datetime
 
 
-
-client = MongoClient(host="localhost",port=27017)
-db = client.hire
-col = db.daejon
+#
+# client = MongoClient(host="localhost",port=27017)
+# db = client.hire
+# col = db.daejon
 
 url = "http://www.dje.go.kr/boardCnts/list.do?boardID=54&m=031001&s=dje"
 r = requests.get(url)
