@@ -26,11 +26,11 @@ def kj():
     return kj_sub_list, kj_ref_list
 
 def cn():
-    url = 'http://www.jne.go.kr/board/list.jne?boardId=BBS_0000282&menuCd=DOM_000000102006001000&contentsSid=252&cpath='
+    url = 'https://www.jne.go.kr/main/na/ntt/selectNttList.do?mi=265&bbsId=117'
     response = urlopen(url)
     soup = BeautifulSoup(response,'html.parser')
     cn_sub_list =[]
-    for i in soup.select("td.subjectEtc"):
+    for i in soup.select("td.al"):
         sub= i.a.get('title','/')
 
         cn_sub_list.append(str(sub))
@@ -49,7 +49,8 @@ def chonbook():
 
 dj_sub_list =[]
 def dj():
-    url = "http://www.dje.go.kr/boardCnts/list.do?boardID=54&m=031001&s=dje"
+    #https://www.dje.go.kr/boardCnts/list.do?boardID=54&m=031001&s=dje
+    url = "https://www.dje.go.kr/boardCnts/list.do?boardID=54&m=031001&s=dje"
     r = requests.get(url)
     bs = BeautifulSoup(r.text, "html.parser")
     lists = bs.select("td.link")

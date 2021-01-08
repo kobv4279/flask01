@@ -18,6 +18,7 @@ app = Flask(__name__)
 
 
 ip='0.0.0.0'
+port = '22001'
 
 app.config["MONGO_URI"]= "mongodb://mongo:27017/hire"
 mongo = PyMongo(app)
@@ -134,6 +135,7 @@ def board_write():
 def hello():
     return render_template('index.html',
                            ip= ip,
+                           port=port,
                            title='깜슈니',
                            sub = kj_sub_list,
                            ref= kj_ref_list,
@@ -151,6 +153,7 @@ def result1():
       return render_template("cn.html",
                              result=result,
                              ip=ip,
+                             port=port,
                              sub = cn_sub_list)
 
 @app.route('/kj',methods = ['POST'])
@@ -160,6 +163,7 @@ def kj_():
 
       return render_template("kj.html",
                              ip=ip,
+                             port=port,
                              result=result,
                              sub = kj_sub_list,
                              ref= kj_sub_list,
@@ -174,6 +178,7 @@ def result3():
       return render_template("chonbook.html",
                              result=result,
                              ip=ip,
+                             port=port,
                              sub = chonbook_sub_list)
 
 
@@ -185,10 +190,11 @@ def result_dj():
       return render_template("dj.html",
                              result=result,
                              ip=ip,
+                             port=port,
                              sub = dj_sub_list)
 
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',port=port)
     app.run(debug=True)

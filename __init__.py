@@ -22,6 +22,7 @@ from . import test_daejoun
 
 app = Flask(__name__)
 ip='0.0.0.0'
+port='22001'
 app.config["MONGO_URI"]= "mongodb://localhost:27017/hire"
 mongo = PyMongo(app)
 
