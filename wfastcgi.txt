@@ -1,0 +1,4 @@
+
+C:\>wfastcgi-enable
+구성 커밋 경로 "MACHINE/WEBROOT/APPHOST"에서 "MACHINE/WEBROOT/APPHOST"의 "system.webServer/fastCgi" 섹션에 구성 변경을  적용했습니다.
+|c:\users\kobv4\anaconda3\lib\site-packages\wfastcgi.py" can now be used as a FastCGI script processor"c:\users\kobv4\anaconda3\python.exe
