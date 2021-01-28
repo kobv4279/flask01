@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 
 ip='0.0.0.0'
-port = '22001'
+port = '5000'
 
 app.config["MONGO_URI"]= "mongodb://mongo:27017/hire"
 mongo = PyMongo(app)
