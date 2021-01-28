@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 
 ip='0.0.0.0'
-port = '5000'
+port = '22001'
 
 app.config["MONGO_URI"]= "mongodb://mongo:27017/hire"
 mongo = PyMongo(app)
@@ -196,5 +196,5 @@ def result_dj():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0',port=port)
+    app.run(host=ip,port=port)
     app.run(debug=True)
