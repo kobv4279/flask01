@@ -39,15 +39,26 @@ def cn():
 
 chonbook_sub_list = []
 def chonbook():
-    req = requests.get('http://pool.jbe.go.kr/main/program.action?cmsid=110020100000')
+
+    # req = requests.get('http://pool.jbe.go.kr/main/program.action?cmsid=110020100000')
+    # soup = BeautifulSoup(req.text,'html.parser')
+    #
+    # html1 = soup.select('td.td.mo_tit')
+    # for i in html1:
+    #     chonbook_sub_list.append(i.text)
+    # return chonbook_sub_list
+
+
+    req = requests.get('https://www.jbe.go.kr/pool/board/list.jbe?boardId=BBS_0000053&menuCd=DOM_000001802001000000&contentsSid=991&cpath=%2Fpool')
     soup = BeautifulSoup(req.text,'html.parser')
 
-    html1 = soup.select('td.td.mo_tit')
+    html1 = soup.select('td.td.title')
     for i in html1:
         chonbook_sub_list.append(i.text)
     return chonbook_sub_list
 
-dj_sub_list =[]
+
+dj_sub_list=[]
 def dj():
     #https://www.dje.go.kr/boardCnts/list.do?boardID=54&m=031001&s=dje
     url = "https://www.dje.go.kr/boardCnts/list.do?boardID=54&m=031001&s=dje"
